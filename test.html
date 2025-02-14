@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test JavaScript </title>
+</head>
+<body>
+    <h1 id="testo">Questo è un testo che cambia colore e si restta cliccano una seconda volta</h1>
+    <button id="bottone"> Clicca qui per cambiare colore </button>
+        <button id="btnForm">Inserisci qui il testo</button>  
+        <div id="formContainer"></div>  
+
+        <script>
+        
+        document.getElementById("btnForm").addEventListener("click", function() {
+
+            const container = document.getElementById("formContainer");
+            const form = document.createElement("form");
+            form.id = "myform";
+
+            const input = document.createElement("input");
+            input.type = "text";
+            input.id = "inputText";
+            input.placeholder = "Inserisci il testo";
+
+            const submitBtn = document.createElement("button");
+            submitBtn.type = "submit";
+            submitBtn.textContent = "Invia";
+
+            form.appendChild(input);
+            form.appendChild(submitBtn);
+
+            container.appendChild(form);
+
+            form.addEventListener("submit", function(event) {
+                event.preventDefault();
+                alert("Nome inserito: " + input.value);
+            });
+        });
+
+        </script>
+
+    <script>
+        const title = document.getElementById("testo");
+        const btn = document.getElementById("bottone");
+        const coloreOriginale = title.style.color || "black";
+        btn.addEventListener("click", function() {
+            if (title.style.color === "green") {
+                title.style.color = coloreOriginale;
+            } else {
+                title.style.color = "green";
+            }
+        });
+
+
+    </script>
+    
+</body>
+</html>
